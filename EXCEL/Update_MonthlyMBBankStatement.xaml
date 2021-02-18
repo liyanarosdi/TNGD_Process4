@@ -7,10 +7,10 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1001,1381</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1209.6,8416</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Update_BankStatement_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
-    <scg:List x:TypeArguments="x:String" Capacity="34">
+    <scg:List x:TypeArguments="x:String" Capacity="35">
       <x:String>System.Activities</x:String>
       <x:String>System.Activities.Statements</x:String>
       <x:String>System.Activities.Expressions</x:String>
@@ -45,6 +45,7 @@
       <x:String>System.Text.RegularExpressions</x:String>
       <x:String>System.Reflection</x:String>
       <x:String>System.Runtime.InteropServices</x:String>
+      <x:String>System.Globalization</x:String>
     </scg:List>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
@@ -77,7 +78,7 @@
       <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
       <AssemblyReference>Microsoft.Bcl.AsyncInterfaces</AssemblyReference>
       <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
-      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
   <sap:WorkflowViewStateService.ViewState>
@@ -85,26 +86,27 @@
       <x:Boolean x:Key="ShouldExpandAll">True</x:Boolean>
     </scg:Dictionary>
   </sap:WorkflowViewStateService.ViewState>
-  <Sequence DisplayName="Update_BankStatement" sap:VirtualizedContainerService.HintSize="606,1316" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Update_BankStatement" sap:VirtualizedContainerService.HintSize="1220,8311.2" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
-      <Variable x:TypeArguments="x:Int32" Default="12" Name="SeqNo" />
+      <Variable x:TypeArguments="x:Int32" Default="0" Name="SeqNo" />
       <Variable x:TypeArguments="x:Int32" Default="1" Name="Counter" />
       <Variable x:TypeArguments="x:String" Name="bValue" />
+      <Variable x:TypeArguments="x:Int32" Name="index" />
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="564,1224" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+    <TryCatch DisplayName="Try Catch" sap:VirtualizedContainerService.HintSize="1178.4,8218.4" sap2010:WorkflowViewState.IdRef="TryCatch_1">
       <TryCatch.Try>
-        <Sequence sap:VirtualizedContainerService.HintSize="526,502" sap2010:WorkflowViewState.IdRef="Sequence_24">
+        <Sequence sap:VirtualizedContainerService.HintSize="1141.6,7496" sap2010:WorkflowViewState.IdRef="Sequence_24">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <Assign sap:VirtualizedContainerService.HintSize="484,60" sap2010:WorkflowViewState.IdRef="Assign_8">
+          <Assign sap:VirtualizedContainerService.HintSize="1100,60" sap2010:WorkflowViewState.IdRef="Assign_8">
             <Assign.To>
               <OutArgument x:TypeArguments="x:Int32">[SeqNo]</OutArgument>
             </Assign.To>
@@ -112,19 +114,19 @@
               <InArgument x:TypeArguments="x:Int32">[SeqNo + 1]</InArgument>
             </Assign.Value>
           </Assign>
-          <ui:ExcelApplicationScope Password="{x:Null}" CreateNewFile="False" DisplayName="Excel Application Scope" sap:VirtualizedContainerService.HintSize="484,52" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_5" InstanceCachePeriod="3000" WorkbookPath="[in_Config(&quot;BankStatementImport&quot;).ToString + &quot;MBB\MBB Collection - &quot; + Now.ToString(&quot;MMMyy&quot;) + &quot;.csv&quot;]">
+          <ui:ExcelApplicationScope Password="{x:Null}" CreateNewFile="False" DisplayName="Excel Application Scope" sap:VirtualizedContainerService.HintSize="1100,52.8" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_5" InstanceCachePeriod="3000" WorkbookPath="[in_Config(&quot;BankStatementImport&quot;).ToString + &quot;MBB\MBB Collection - &quot; + Now.ToString(&quot;MMMyy&quot;) + &quot;.csv&quot;]">
             <ui:ExcelApplicationScope.Body>
               <ActivityAction x:TypeArguments="ui:WorkbookApplication">
                 <ActivityAction.Argument>
                   <DelegateInArgument x:TypeArguments="ui:WorkbookApplication" Name="ExcelWorkbookScope" />
                 </ActivityAction.Argument>
-                <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="376,198" sap2010:WorkflowViewState.IdRef="Sequence_23">
+                <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="375.2,200" sap2010:WorkflowViewState.IdRef="Sequence_23">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text 'item  A8'" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="GetValue_1">
+                  <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text 'item  A8'" sap:VirtualizedContainerService.HintSize="333.6,107.2" sap2010:WorkflowViewState.IdRef="GetValue_1">
                     <ui:GetValue.Target>
                       <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="d83abef4-71a9-4c79-abd6-5f196867ca0b" InformativeScreenshot="219ca19cf86fc3c75eda2904d24148e4" Selector="&lt;wnd app='excel.exe' cls='XLMAIN' title='*' /&gt;&lt;uia automationid='*' cls='ExcelGrid' name='*' /&gt;&lt;uia automationid='Grid' name='Grid' role='data grid' /&gt;&lt;uia name='A8' role='item' tableCol='1' tableRow='8' /&gt;" WaitForReady="INTERACTIVE">
                         <ui:Target.TimeoutMS>
@@ -146,12 +148,12 @@
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
           </ui:ExcelApplicationScope>
-          <If Condition="[bValue = Nothing]" sap:VirtualizedContainerService.HintSize="484,218" sap2010:WorkflowViewState.IdRef="If_3">
+          <If Condition="[bValue = Nothing]" sap:VirtualizedContainerService.HintSize="1100,7210.4" sap2010:WorkflowViewState.IdRef="If_3">
             <If.Then>
-              <Throw Exception="[New Exception (&quot;No data&quot;)]" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="Throw_1" />
+              <Throw Exception="[New Exception (&quot;No data&quot;)]" sap:VirtualizedContainerService.HintSize="200,22.4" sap2010:WorkflowViewState.IdRef="Throw_1" />
             </If.Then>
             <If.Else>
-              <Sequence DisplayName="Sequence - MBB" sap:VirtualizedContainerService.HintSize="200,68" sap2010:WorkflowViewState.IdRef="Sequence_6">
+              <Sequence DisplayName="Sequence - MBB" sap:VirtualizedContainerService.HintSize="856,7060.8" sap2010:WorkflowViewState.IdRef="Sequence_6">
                 <Sequence.Variables>
                   <Variable x:TypeArguments="x:Int32" Name="LastRowMBB" />
                   <Variable x:TypeArguments="sd:DataTable" Name="dtBankMBB" />
@@ -167,17 +169,17 @@
                 </Sequence.Variables>
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-                    <x:Boolean x:Key="IsPinned">True</x:Boolean>
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
-                <ui:ExcelApplicationScope Password="{x:Null}" CreateNewFile="False" DisplayName="Excel Application Scope" sap:VirtualizedContainerService.HintSize="434,322" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_3" InstanceCachePeriod="3000" WorkbookPath="[in_Config(&quot;BankStatementImport&quot;).ToString + &quot;TNGD Bank Statement Import.xlsx&quot;]">
+                <ui:ExcelApplicationScope Password="{x:Null}" CreateNewFile="False" DisplayName="Excel Application Scope" sap:VirtualizedContainerService.HintSize="814.4,52.8" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_3" InstanceCachePeriod="3000" WorkbookPath="[in_Config(&quot;BankStatementImport&quot;).ToString + &quot;TNGD Bank Statement Import.xlsx&quot;]">
                   <ui:ExcelApplicationScope.Body>
                     <ActivityAction x:TypeArguments="ui:WorkbookApplication">
                       <ActivityAction.Argument>
                         <DelegateInArgument x:TypeArguments="ui:WorkbookApplication" Name="ExcelWorkbookScope" />
                       </ActivityAction.Argument>
-                      <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="376,213" sap2010:WorkflowViewState.IdRef="Sequence_10">
+                      <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="375.2,215.2" sap2010:WorkflowViewState.IdRef="Sequence_10">
                         <Sequence.Variables>
                           <Variable x:TypeArguments="sd:DataTable" Name="MainDT" />
                         </Sequence.Variables>
@@ -186,63 +188,63 @@
                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
-                        <ui:ExcelReadRange AddHeaders="False" DataTable="[MainDT]" DisplayName="Read Range" sap:VirtualizedContainerService.HintSize="334,59" sap2010:WorkflowViewState.IdRef="ExcelReadRange_12" SheetName="Sheet2">
+                        <ui:ExcelReadRange AddHeaders="False" DataTable="[MainDT]" DisplayName="Read Range" sap:VirtualizedContainerService.HintSize="333.6,60" sap2010:WorkflowViewState.IdRef="ExcelReadRange_12" SheetName="Sheet2">
                           <ui:ExcelReadRange.Range>
                             <InArgument x:TypeArguments="x:String">
                               <Literal x:TypeArguments="x:String" Value="" />
                             </InArgument>
                           </ui:ExcelReadRange.Range>
                         </ui:ExcelReadRange>
-                        <ui:ExcelDeleteRange DisplayName="Delete Range" sap:VirtualizedContainerService.HintSize="334,22" sap2010:WorkflowViewState.IdRef="ExcelDeleteRange_1" Range="[&quot;Sheet2!$A$2:$Z$&quot; + (MainDT.Rows.Count+1).ToString]" SheetName="Sheet2" ShiftCells="False" ShiftOption="ShiftUp" />
+                        <ui:ExcelDeleteRange DisplayName="Delete Range" sap:VirtualizedContainerService.HintSize="333.6,22.4" sap2010:WorkflowViewState.IdRef="ExcelDeleteRange_1" Range="[&quot;Sheet2!$A$2:$Z$&quot; + (MainDT.Rows.Count+1).ToString]" SheetName="Sheet2" ShiftCells="False" ShiftOption="ShiftUp" />
                       </Sequence>
                     </ActivityAction>
                   </ui:ExcelApplicationScope.Body>
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      <x:Boolean x:Key="IsPinned">True</x:Boolean>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
                 </ui:ExcelApplicationScope>
-                <ui:CopyFile ContinueOnError="{x:Null}" Destination="[in_Config(&quot;BankStatementImport&quot;).ToString + &quot;TNGD Bank Statement Import_&quot; + in_BankAcc + &quot;_&quot; + Now.ToString(&quot;yyyyMMdd&quot;) + &quot;.csv&quot;]" DisplayName="Copy File" sap:VirtualizedContainerService.HintSize="434,160" sap2010:WorkflowViewState.IdRef="CopyFile_2" Overwrite="True" Path="[in_Config(&quot;BankStatementImport&quot;).ToString + &quot;TNGD Bank Statement Import.xlsx&quot;]" />
-                <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="434,52" sap2010:WorkflowViewState.IdRef="CommentOut_9">
+                <ui:CopyFile ContinueOnError="{x:Null}" Destination="[in_Config(&quot;BankStatementImport&quot;).ToString + &quot;TNGD Bank Statement Import_&quot; + in_BankAcc + &quot;_&quot; + Now.ToString(&quot;yyyyMMdd&quot;) + &quot;.csv&quot;]" DisplayName="Copy File" sap:VirtualizedContainerService.HintSize="814.4,160" sap2010:WorkflowViewState.IdRef="CopyFile_2" Overwrite="True" Path="[in_Config(&quot;BankStatementImport&quot;).ToString + &quot;TNGD Bank Statement Import.xlsx&quot;]" />
+                <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="814.4,52.8" sap2010:WorkflowViewState.IdRef="CommentOut_9">
                   <ui:CommentOut.Body>
-                    <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="476,252" sap2010:WorkflowViewState.IdRef="Sequence_17">
+                    <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="475.2,252.8" sap2010:WorkflowViewState.IdRef="Sequence_17">
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
-                      <ui:CopyFile ContinueOnError="{x:Null}" Destination="[&quot;C:\Users\rpavendor\Desktop\RPATEST\TNGD Bank Statement Import_&quot; + &quot;564717525937_&quot; + Now.ToString(&quot;yyyyMMdd&quot;) + &quot;.csv&quot;]" DisplayName="Copy File" sap:VirtualizedContainerService.HintSize="434,160" sap2010:WorkflowViewState.IdRef="CopyFile_1" Overwrite="True" Path="[&quot;C:\Users\rpavendor\Desktop\RPATEST\TNGD Bank Statement Import&quot; + &quot;.csv&quot;]" />
+                      <ui:CopyFile ContinueOnError="{x:Null}" Destination="[&quot;C:\Users\rpavendor\Desktop\RPATEST\TNGD Bank Statement Import_&quot; + &quot;564717525937_&quot; + Now.ToString(&quot;yyyyMMdd&quot;) + &quot;.csv&quot;]" DisplayName="Copy File" sap:VirtualizedContainerService.HintSize="433.6,160" sap2010:WorkflowViewState.IdRef="CopyFile_1" Overwrite="True" Path="[&quot;C:\Users\rpavendor\Desktop\RPATEST\TNGD Bank Statement Import&quot; + &quot;.csv&quot;]" />
                     </Sequence>
                   </ui:CommentOut.Body>
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      <x:Boolean x:Key="IsPinned">True</x:Boolean>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
                 </ui:CommentOut>
-                <ui:ExcelApplicationScope Password="{x:Null}" AutoSave="False" CreateNewFile="False" DisplayName="Excel Application Scope" sap:VirtualizedContainerService.HintSize="434,52" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_1" InstanceCachePeriod="3000" Visible="False" WorkbookPath="[in_Config(&quot;BankStatementImport&quot;).ToString + &quot;MBB\MBB Collection - &quot; + Now.ToString(&quot;MMMyy&quot;) + &quot;.csv&quot;]">
+                <ui:ExcelApplicationScope Password="{x:Null}" AutoSave="False" CreateNewFile="False" DisplayName="Excel Application Scope" sap:VirtualizedContainerService.HintSize="814.4,52.8" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_1" InstanceCachePeriod="3000" Visible="False" WorkbookPath="[in_Config(&quot;BankStatementImport&quot;).ToString + &quot;MBB\MBB Collection - &quot; + Now.ToString(&quot;MMMyy&quot;) + &quot;.csv&quot;]">
                   <ui:ExcelApplicationScope.Body>
                     <ActivityAction x:TypeArguments="ui:WorkbookApplication">
                       <ActivityAction.Argument>
                         <DelegateInArgument x:TypeArguments="ui:WorkbookApplication" Name="ExcelWorkbookScope" />
                       </ActivityAction.Argument>
-                      <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="376,746" sap2010:WorkflowViewState.IdRef="Sequence_2">
+                      <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="375.2,752.8" sap2010:WorkflowViewState.IdRef="Sequence_2">
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
-                        <ui:ExcelReadRange AddHeaders="False" DataTable="[dtBankMBB]" DisplayName="Read Range - Read as DataTable" sap:VirtualizedContainerService.HintSize="334,59" sap2010:WorkflowViewState.IdRef="ExcelReadRange_1" SheetName="[&quot;MBB Collection - &quot; + Now.ToString(&quot;MMMyy&quot;)]">
+                        <ui:ExcelReadRange AddHeaders="False" DataTable="[dtBankMBB]" DisplayName="Read Range - Read as DataTable" sap:VirtualizedContainerService.HintSize="333.6,60" sap2010:WorkflowViewState.IdRef="ExcelReadRange_1" SheetName="[&quot;MBB Collection - &quot; + Now.ToString(&quot;MMMyy&quot;)]">
                           <ui:ExcelReadRange.Range>
                             <InArgument x:TypeArguments="x:String">
                               <Literal x:TypeArguments="x:String" Value="" />
                             </InArgument>
                           </ui:ExcelReadRange.Range>
                         </ui:ExcelReadRange>
-                        <Assign sap:VirtualizedContainerService.HintSize="334,60" sap2010:WorkflowViewState.IdRef="Assign_4">
+                        <Assign sap:VirtualizedContainerService.HintSize="333.6,60" sap2010:WorkflowViewState.IdRef="Assign_4">
                           <Assign.To>
                             <OutArgument x:TypeArguments="x:Int32">[LastRowMBB]</OutArgument>
                           </Assign.To>
@@ -250,48 +252,51 @@
                             <InArgument x:TypeArguments="x:Int32">[dtBankMBB.Rows.Count]</InArgument>
                           </Assign.Value>
                         </Assign>
-                        <ui:ExcelReadRange AddHeaders="False" DataTable="[ColEMBB]" DisplayName="Read Range - Column E" sap:VirtualizedContainerService.HintSize="334,59" sap2010:WorkflowViewState.IdRef="ExcelReadRange_4" Range="[&quot;E2:E&quot;+LastRowMBB.ToString]" SheetName="[&quot;MBB Collection - &quot; + Now.ToString(&quot;MMMyy&quot;)]" />
-                        <ui:ExcelReadRange AddHeaders="False" DataTable="[ColPMBB]" DisplayName="Read Range - Column P" sap:VirtualizedContainerService.HintSize="334,59" sap2010:WorkflowViewState.IdRef="ExcelReadRange_3" Range="[&quot;P2:P&quot;+LastRowMBB.ToString]" SheetName="[&quot;MBB Collection - &quot; + Now.ToString(&quot;MMMyy&quot;)]" />
-                        <ui:ExcelReadRange AddHeaders="False" DataTable="[ColOMBB]" DisplayName="Read Range - Column O" sap:VirtualizedContainerService.HintSize="334,59" sap2010:WorkflowViewState.IdRef="ExcelReadRange_8" Range="[&quot;O2:O&quot;+LastRowMBB.ToString]" SheetName="[&quot;MBB Collection - &quot; + Now.ToString(&quot;MMMyy&quot;)]" />
-                        <ui:ExcelReadRange AddHeaders="False" DataTable="[ColQMBB]" DisplayName="Read Range - Column Q" sap:VirtualizedContainerService.HintSize="334,59" sap2010:WorkflowViewState.IdRef="ExcelReadRange_6" Range="[&quot;Q2:Q&quot;+LastRowMBB.ToString]" SheetName="[&quot;MBB Collection - &quot; + Now.ToString(&quot;MMMyy&quot;)]" />
-                        <ui:ExcelReadRange AddHeaders="False" DataTable="[ColRMBB]" DisplayName="Read Range - Column R" sap:VirtualizedContainerService.HintSize="334,59" sap2010:WorkflowViewState.IdRef="ExcelReadRange_7" Range="[&quot;R2:R&quot;+LastRowMBB.ToString]" SheetName="[&quot;MBB Collection - &quot; + Now.ToString(&quot;MMMyy&quot;)]" />
+                        <ui:ExcelReadRange AddHeaders="False" DataTable="[ColEMBB]" DisplayName="Read Range - Column E" sap:VirtualizedContainerService.HintSize="333.6,60" sap2010:WorkflowViewState.IdRef="ExcelReadRange_4" Range="[&quot;E2:E&quot;+LastRowMBB.ToString]" SheetName="[&quot;MBB Collection - &quot; + Now.ToString(&quot;MMMyy&quot;)]" />
+                        <ui:ExcelReadRange AddHeaders="False" DataTable="[ColPMBB]" DisplayName="Read Range - Column P" sap:VirtualizedContainerService.HintSize="333.6,60" sap2010:WorkflowViewState.IdRef="ExcelReadRange_3" Range="[&quot;P2:P&quot;+LastRowMBB.ToString]" SheetName="[&quot;MBB Collection - &quot; + Now.ToString(&quot;MMMyy&quot;)]" />
+                        <ui:ExcelReadRange AddHeaders="False" DataTable="[ColOMBB]" DisplayName="Read Range - Column O" sap:VirtualizedContainerService.HintSize="333.6,60" sap2010:WorkflowViewState.IdRef="ExcelReadRange_8" Range="[&quot;O2:O&quot;+LastRowMBB.ToString]" SheetName="[&quot;MBB Collection - &quot; + Now.ToString(&quot;MMMyy&quot;)]" />
+                        <ui:ExcelReadRange AddHeaders="False" DataTable="[ColQMBB]" DisplayName="Read Range - Column Q" sap:VirtualizedContainerService.HintSize="333.6,60" sap2010:WorkflowViewState.IdRef="ExcelReadRange_6" Range="[&quot;Q2:Q&quot;+LastRowMBB.ToString]" SheetName="[&quot;MBB Collection - &quot; + Now.ToString(&quot;MMMyy&quot;)]" />
+                        <ui:ExcelReadRange AddHeaders="False" DataTable="[ColRMBB]" DisplayName="Read Range - Column R" sap:VirtualizedContainerService.HintSize="333.6,60" sap2010:WorkflowViewState.IdRef="ExcelReadRange_7" Range="[&quot;R2:R&quot;+LastRowMBB.ToString]" SheetName="[&quot;MBB Collection - &quot; + Now.ToString(&quot;MMMyy&quot;)]" />
                       </Sequence>
                     </ActivityAction>
                   </ui:ExcelApplicationScope.Body>
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      <x:Boolean x:Key="IsPinned">True</x:Boolean>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
                 </ui:ExcelApplicationScope>
-                <ui:ExcelApplicationScope Password="{x:Null}" DisplayName="Excel Application Scope" sap:VirtualizedContainerService.HintSize="434,52" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_2" InstanceCachePeriod="3000" WorkbookPath="[in_Config(&quot;BankStatementImport&quot;).ToString + &quot;TNGD Bank Statement Import_&quot; + in_BankAcc + &quot;_&quot; + Now.ToString(&quot;yyyyMMdd&quot;) + &quot;.csv&quot;]">
+                <ui:ExcelApplicationScope Password="{x:Null}" DisplayName="Excel Application Scope" sap:VirtualizedContainerService.HintSize="814.4,6489.6" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_2" InstanceCachePeriod="3000" WorkbookPath="[in_Config(&quot;BankStatementImport&quot;).ToString + &quot;TNGD Bank Statement Import_&quot; + in_BankAcc + &quot;_&quot; + Now.ToString(&quot;yyyyMMdd&quot;) + &quot;.csv&quot;]">
                   <ui:ExcelApplicationScope.Body>
                     <ActivityAction x:TypeArguments="ui:WorkbookApplication">
                       <ActivityAction.Argument>
                         <DelegateInArgument x:TypeArguments="ui:WorkbookApplication" Name="ExcelWorkbookScope" />
                       </ActivityAction.Argument>
-                      <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="376,2270" sap2010:WorkflowViewState.IdRef="Sequence_3">
+                      <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="780.8,6380" sap2010:WorkflowViewState.IdRef="Sequence_3">
+                        <Sequence.Variables>
+                          <Variable x:TypeArguments="sd:DataTable" Name="dtColG" />
+                        </Sequence.Variables>
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                             <x:Boolean x:Key="IsPinned">False</x:Boolean>
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
-                        <ui:ExcelWriteRange AddHeaders="False" DataTable="[ColEMBB]" DisplayName="Write Range - Column G" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="ExcelWriteRange_1" SheetName="Sheet2" StartingCell="G1" />
-                        <ui:ExcelWriteRange AddHeaders="False" DataTable="[ColEMBB]" DisplayName="Write Range - Column H" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="ExcelWriteRange_2" SheetName="Sheet2" StartingCell="H1" />
-                        <ui:ExcelWriteRange AddHeaders="False" DataTable="[ColPMBB]" DisplayName="Write Range - Column I" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="ExcelWriteRange_3" SheetName="Sheet2" StartingCell="I1" />
-                        <ui:ExcelWriteRange AddHeaders="False" DataTable="[ColOMBB]" DisplayName="Write Range - Column J" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="ExcelWriteRange_4" SheetName="Sheet2" StartingCell="J1" />
-                        <ui:ExcelWriteRange AddHeaders="False" DataTable="[ColQMBB]" DisplayName="Write Range - Column K" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="ExcelWriteRange_6" SheetName="Sheet2" StartingCell="K1" />
-                        <ui:ExcelWriteRange AddHeaders="False" DataTable="[ColRMBB]" DisplayName="Write Range - Column L" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="ExcelWriteRange_5" SheetName="Sheet2" StartingCell="L1" />
-                        <ui:ExcelReadRange AddHeaders="False" DataTable="[dtImportMBB]" DisplayName="Read Range" sap:VirtualizedContainerService.HintSize="334,59" sap2010:WorkflowViewState.IdRef="ExcelReadRange_5" SheetName="Sheet2">
+                        <ui:ExcelWriteRange AddHeaders="False" DataTable="[ColEMBB]" DisplayName="Write Range - Column G" sap:VirtualizedContainerService.HintSize="739.2,88" sap2010:WorkflowViewState.IdRef="ExcelWriteRange_1" SheetName="Sheet2" StartingCell="G1" />
+                        <ui:ExcelWriteRange AddHeaders="False" DataTable="[ColEMBB]" DisplayName="Write Range - Column H" sap:VirtualizedContainerService.HintSize="739.2,88" sap2010:WorkflowViewState.IdRef="ExcelWriteRange_2" SheetName="Sheet2" StartingCell="H1" />
+                        <ui:ExcelWriteRange AddHeaders="False" DataTable="[ColPMBB]" DisplayName="Write Range - Column I" sap:VirtualizedContainerService.HintSize="739.2,88" sap2010:WorkflowViewState.IdRef="ExcelWriteRange_3" SheetName="Sheet2" StartingCell="I1" />
+                        <ui:ExcelWriteRange AddHeaders="False" DataTable="[ColOMBB]" DisplayName="Write Range - Column J" sap:VirtualizedContainerService.HintSize="739.2,88" sap2010:WorkflowViewState.IdRef="ExcelWriteRange_4" SheetName="Sheet2" StartingCell="J1" />
+                        <ui:ExcelWriteRange AddHeaders="False" DataTable="[ColQMBB]" DisplayName="Write Range - Column K" sap:VirtualizedContainerService.HintSize="739.2,88" sap2010:WorkflowViewState.IdRef="ExcelWriteRange_6" SheetName="Sheet2" StartingCell="K1" />
+                        <ui:ExcelWriteRange AddHeaders="False" DataTable="[ColRMBB]" DisplayName="Write Range - Column L" sap:VirtualizedContainerService.HintSize="739.2,88" sap2010:WorkflowViewState.IdRef="ExcelWriteRange_5" SheetName="Sheet2" StartingCell="L1" />
+                        <ui:ExcelReadRange AddHeaders="False" DataTable="[dtImportMBB]" DisplayName="Read Range" sap:VirtualizedContainerService.HintSize="739.2,60" sap2010:WorkflowViewState.IdRef="ExcelReadRange_5" SheetName="Sheet2">
                           <ui:ExcelReadRange.Range>
                             <InArgument x:TypeArguments="x:String">
                               <Literal x:TypeArguments="x:String" Value="" />
                             </InArgument>
                           </ui:ExcelReadRange.Range>
                         </ui:ExcelReadRange>
-                        <Assign sap:VirtualizedContainerService.HintSize="334,60" sap2010:WorkflowViewState.IdRef="Assign_7">
+                        <Assign sap:VirtualizedContainerService.HintSize="739.2,60" sap2010:WorkflowViewState.IdRef="Assign_7">
                           <Assign.To>
                             <OutArgument x:TypeArguments="x:Int32">[RowMBB]</OutArgument>
                           </Assign.To>
@@ -299,32 +304,155 @@
                             <InArgument x:TypeArguments="x:Int32">[dtImportMBB.Rows.Count]</InArgument>
                           </Assign.Value>
                         </Assign>
-                        <ui:ExcelWriteCell Cell="[&quot;A1:A&quot; + RowMBB.ToString]" DisplayName="Write Cell - Column A" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="ExcelWriteCell_2" SheetName="Sheet2" Text="B" />
-                        <ui:ExcelWriteCell Cell="[&quot;B1:B&quot; + RowMBB.ToString]" DisplayName="Write Cell - Column B" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="ExcelWriteCell_9" SheetName="Sheet2" Text="[in_BankCode + Now.ToString(&quot;yyyyMMdd&quot;)]" />
-                        <ui:ExcelWriteCell Cell="[&quot;C1:C&quot; + RowMBB.ToString]" DisplayName="Write Cell - Column C" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="ExcelWriteCell_10" SheetName="Sheet2" Text="[in_BankCode]" />
-                        <ui:ExcelWriteCell Cell="[&quot;D1:D&quot; + RowMBB.ToString]" DisplayName="Write Cell - Column D (middle row)" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="ExcelWriteCell_5" SheetName="Sheet2" Text="2" />
-                        <ui:ExcelWriteCell Cell="D1" DisplayName="Write Cell - Column D (first row)" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="ExcelWriteCell_7" SheetName="Sheet2" Text="1" />
-                        <ui:ExcelWriteCell Cell="[&quot;D&quot; + RowMBB.ToString]" DisplayName="Write Cell - Column D (last row)" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="ExcelWriteCell_6" SheetName="Sheet2" Text="3" />
-                        <ui:ExcelWriteCell Cell="[&quot;F1:F&quot; + RowMBB.ToString]" DisplayName="Write Cell - Column F" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="ExcelWriteCell_3" SheetName="Sheet2" Text="MYR" />
-                        <ui:ForEachRow CurrentIndex="{x:Null}" DataTable="[dtImportMBB]" DisplayName="For Each Row" sap:VirtualizedContainerService.HintSize="334,52" sap2010:WorkflowViewState.IdRef="ForEachRow_2">
+                        <ui:ExcelWriteCell Cell="[&quot;A1:A&quot; + RowMBB.ToString]" DisplayName="Write Cell - Column A" sap:VirtualizedContainerService.HintSize="739.2,88" sap2010:WorkflowViewState.IdRef="ExcelWriteCell_2" SheetName="Sheet2" Text="B" />
+                        <ui:ExcelWriteCell Cell="[&quot;B1:B&quot; + RowMBB.ToString]" DisplayName="Write Cell - Column B" sap:VirtualizedContainerService.HintSize="739.2,88" sap2010:WorkflowViewState.IdRef="ExcelWriteCell_9" SheetName="Sheet2" Text="[in_BankCode + Now.ToString(&quot;yyyyMMdd&quot;)]" />
+                        <ui:ExcelWriteCell Cell="[&quot;C1:C&quot; + RowMBB.ToString]" DisplayName="Write Cell - Column C" sap:VirtualizedContainerService.HintSize="739.2,88" sap2010:WorkflowViewState.IdRef="ExcelWriteCell_10" SheetName="Sheet2" Text="[in_BankCode]" />
+                        <ui:ExcelWriteCell Cell="[&quot;D1:D&quot; + RowMBB.ToString]" DisplayName="Write Cell - Column D (middle row)" sap:VirtualizedContainerService.HintSize="739.2,88" sap2010:WorkflowViewState.IdRef="ExcelWriteCell_5" SheetName="Sheet2" Text="2" />
+                        <ui:ExcelWriteCell Cell="D1" DisplayName="Write Cell - Column D (first row)" sap:VirtualizedContainerService.HintSize="739.2,88" sap2010:WorkflowViewState.IdRef="ExcelWriteCell_7" SheetName="Sheet2" Text="1" />
+                        <ui:ExcelWriteCell Cell="[&quot;D&quot; + RowMBB.ToString]" DisplayName="Write Cell - Column D (last row)" sap:VirtualizedContainerService.HintSize="739.2,88" sap2010:WorkflowViewState.IdRef="ExcelWriteCell_6" SheetName="Sheet2" Text="3" />
+                        <ui:ExcelWriteCell Cell="[&quot;F1:F&quot; + RowMBB.ToString]" DisplayName="Write Cell - Column F" sap:VirtualizedContainerService.HintSize="739.2,88" sap2010:WorkflowViewState.IdRef="ExcelWriteCell_3" SheetName="Sheet2" Text="MYR" />
+                        <ui:ForEachRow CurrentIndex="{x:Null}" DataTable="[dtImportMBB]" DisplayName="For Each Row" sap:VirtualizedContainerService.HintSize="739.2,2799.2" sap2010:WorkflowViewState.IdRef="ForEachRow_2">
                           <ui:ForEachRow.Body>
                             <ActivityAction x:TypeArguments="sd:DataRow">
                               <ActivityAction.Argument>
                                 <DelegateInArgument x:TypeArguments="sd:DataRow" Name="row" />
                               </ActivityAction.Argument>
-                              <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="376,1014" sap2010:WorkflowViewState.IdRef="Sequence_5">
+                              <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="689.6,2650.4" sap2010:WorkflowViewState.IdRef="Sequence_5">
+                                <Sequence.Variables>
+                                  <Variable x:TypeArguments="x:String" Name="strColG" />
+                                  <Variable x:TypeArguments="x:String" Name="strColGSplit" />
+                                  <Variable x:TypeArguments="s:DateTime" Name="dtOld" />
+                                  <Variable x:TypeArguments="x:String" Name="strNewColG" />
+                                  <Variable x:TypeArguments="x:String" Name="AfterG" />
+                                  <Variable x:TypeArguments="sd:DataTable" Name="dtG" />
+                                  <Variable x:TypeArguments="x:String" Name="dtNewColG" />
+                                </Sequence.Variables>
                                 <sap:WorkflowViewStateService.ViewState>
                                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                   </scg:Dictionary>
                                 </sap:WorkflowViewStateService.ViewState>
-                                <ui:ExcelWriteCell Cell="[&quot;E&quot; + Counter.ToString]" DisplayName="Write Cell - Column E" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="ExcelWriteCell_4" SheetName="Sheet2" Text="[Counter.ToString]" />
-                                <ui:ExcelWriteCell Cell="[&quot;M&quot; + Counter.ToString]" DisplayName="Write Cell - Column M" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="ExcelWriteCell_8" SheetName="Sheet2" Text="[SeqNo.ToString]" />
-                                <ui:ExcelLookUpRange DisplayName="LookUp Range - Column L value D" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="ExcelLookUpRange_7" Range="[&quot;K1:K&quot;+RowMBB.ToString]" Result="[ValueK]" SheetName="Sheet2" Value="." />
-                                <ui:ExcelLookUpRange DisplayName="LookUp Range - Column L value C" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="ExcelLookUpRange_8" Range="[&quot;L1:L&quot;+RowMBB.ToString]" Result="[ValueL]" SheetName="Sheet2" Value="." />
-                                <ui:ExcelWriteCell Cell="[ValueK]" DisplayName="Write Cell - Column L value I" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="ExcelWriteCell_21" SheetName="Sheet2" Text="-1" />
-                                <ui:ExcelWriteCell Cell="[ValueL]" DisplayName="Write Cell - Column L value I" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="ExcelWriteCell_22" SheetName="Sheet2" Text="1" />
-                                <Assign sap:VirtualizedContainerService.HintSize="334,60" sap2010:WorkflowViewState.IdRef="Assign_3">
+                                <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="648,192.8" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
+                                  <ui:MultipleAssign.AssignOperations>
+                                    <scg:List x:TypeArguments="ui:AssignOperation" Capacity="4">
+                                      <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_1">
+                                        <ui:AssignOperation.To>
+                                          <OutArgument x:TypeArguments="x:String">[strColG]</OutArgument>
+                                        </ui:AssignOperation.To>
+                                        <ui:AssignOperation.Value>
+                                          <InArgument x:TypeArguments="x:String">[row(6).ToString]</InArgument>
+                                        </ui:AssignOperation.Value>
+                                      </ui:AssignOperation>
+                                      <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_2">
+                                        <ui:AssignOperation.To>
+                                          <OutArgument x:TypeArguments="x:String">[strColGSplit]</OutArgument>
+                                        </ui:AssignOperation.To>
+                                        <ui:AssignOperation.Value>
+                                          <InArgument x:TypeArguments="x:String">[strColG.Substring(0,10)]</InArgument>
+                                        </ui:AssignOperation.Value>
+                                      </ui:AssignOperation>
+                                      <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_3">
+                                        <ui:AssignOperation.To>
+                                          <OutArgument x:TypeArguments="s:DateTime">[dtOld]</OutArgument>
+                                        </ui:AssignOperation.To>
+                                        <ui:AssignOperation.Value>
+                                          <InArgument x:TypeArguments="s:DateTime">[DateTime.ParseExact(strColGSplit, "yyyy-MM-dd",System.Globalization.CultureInfo.InvariantCulture)]</InArgument>
+                                        </ui:AssignOperation.Value>
+                                      </ui:AssignOperation>
+                                      <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_4">
+                                        <ui:AssignOperation.To>
+                                          <OutArgument x:TypeArguments="x:String">[strNewColG]</OutArgument>
+                                        </ui:AssignOperation.To>
+                                        <ui:AssignOperation.Value>
+                                          <InArgument x:TypeArguments="x:String">[dtOld.ToString("yyyyMMdd")]</InArgument>
+                                        </ui:AssignOperation.Value>
+                                      </ui:AssignOperation>
+                                    </scg:List>
+                                  </ui:MultipleAssign.AssignOperations>
+                                </ui:MultipleAssign>
+                                <If Condition="[row(10).ToString.Contains(&quot;-&quot;)]" sap:VirtualizedContainerService.HintSize="648,530.4" sap2010:WorkflowViewState.IdRef="If_4">
+                                  <sap:WorkflowViewStateService.ViewState>
+                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                    </scg:Dictionary>
+                                  </sap:WorkflowViewStateService.ViewState>
+                                  <If.Then>
+                                    <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="228.8,62.4" sap2010:WorkflowViewState.IdRef="WriteLine_1" Text="Nothing K" />
+                                  </If.Then>
+                                  <If.Else>
+                                    <Sequence sap:VirtualizedContainerService.HintSize="375.2,380.8" sap2010:WorkflowViewState.IdRef="Sequence_26">
+                                      <sap:WorkflowViewStateService.ViewState>
+                                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                        </scg:Dictionary>
+                                      </sap:WorkflowViewStateService.ViewState>
+                                      <Assign sap:VirtualizedContainerService.HintSize="333.6,60" sap2010:WorkflowViewState.IdRef="Assign_9">
+                                        <Assign.To>
+                                          <OutArgument x:TypeArguments="x:Int32">[index]</OutArgument>
+                                        </Assign.To>
+                                        <Assign.Value>
+                                          <InArgument x:TypeArguments="x:Int32">[dtImportMBB.Rows.IndexOf(row)]</InArgument>
+                                        </Assign.Value>
+                                      </Assign>
+                                      <Assign sap:VirtualizedContainerService.HintSize="333.6,60" sap2010:WorkflowViewState.IdRef="Assign_10">
+                                        <Assign.To>
+                                          <OutArgument x:TypeArguments="x:Int32">[index]</OutArgument>
+                                        </Assign.To>
+                                        <Assign.Value>
+                                          <InArgument x:TypeArguments="x:Int32">[index + 1]</InArgument>
+                                        </Assign.Value>
+                                      </Assign>
+                                      <ui:ExcelWriteCell Cell="[&quot;K&quot; + index.ToString]" DisplayName="Write Cell" sap:VirtualizedContainerService.HintSize="333.6,88" sap2010:WorkflowViewState.IdRef="ExcelWriteCell_24" SheetName="Sheet2" Text="-1" />
+                                    </Sequence>
+                                  </If.Else>
+                                </If>
+                                <If Condition="[row(11).ToString.Contains(&quot;-&quot;)]" sap:VirtualizedContainerService.HintSize="648,530.4" sap2010:WorkflowViewState.IdRef="If_5">
+                                  <sap:WorkflowViewStateService.ViewState>
+                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                    </scg:Dictionary>
+                                  </sap:WorkflowViewStateService.ViewState>
+                                  <If.Then>
+                                    <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="228.8,62.4" sap2010:WorkflowViewState.IdRef="WriteLine_2" Text="Nothing L" />
+                                  </If.Then>
+                                  <If.Else>
+                                    <Sequence sap:VirtualizedContainerService.HintSize="375.2,380.8" sap2010:WorkflowViewState.IdRef="Sequence_27">
+                                      <sap:WorkflowViewStateService.ViewState>
+                                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                        </scg:Dictionary>
+                                      </sap:WorkflowViewStateService.ViewState>
+                                      <Assign sap:VirtualizedContainerService.HintSize="333.6,60" sap2010:WorkflowViewState.IdRef="Assign_11">
+                                        <Assign.To>
+                                          <OutArgument x:TypeArguments="x:Int32">[index]</OutArgument>
+                                        </Assign.To>
+                                        <Assign.Value>
+                                          <InArgument x:TypeArguments="x:Int32">[dtImportMBB.Rows.IndexOf(row)]</InArgument>
+                                        </Assign.Value>
+                                      </Assign>
+                                      <Assign sap:VirtualizedContainerService.HintSize="333.6,60" sap2010:WorkflowViewState.IdRef="Assign_12">
+                                        <Assign.To>
+                                          <OutArgument x:TypeArguments="x:Int32">[index]</OutArgument>
+                                        </Assign.To>
+                                        <Assign.Value>
+                                          <InArgument x:TypeArguments="x:Int32">[index + 1]</InArgument>
+                                        </Assign.Value>
+                                      </Assign>
+                                      <ui:ExcelWriteCell Cell="[&quot;L&quot; + index.ToString]" DisplayName="Write Cell" sap:VirtualizedContainerService.HintSize="333.6,88" sap2010:WorkflowViewState.IdRef="ExcelWriteCell_25" SheetName="Sheet2" Text="1" />
+                                    </Sequence>
+                                  </If.Else>
+                                </If>
+                                <ui:ExcelLookUpRange DisplayName="LookUp Range - Col G" sap:VirtualizedContainerService.HintSize="648,88" sap2010:WorkflowViewState.IdRef="ExcelLookUpRange_9" Range="[&quot;G1:G&quot; + RowMBB.ToString]" Result="[dtNewColG]" SheetName="Sheet2" Value="[strColG]" />
+                                <ui:ExcelWriteCell Cell="[dtNewColG]" DisplayName="Write Cell - Col G" sap:VirtualizedContainerService.HintSize="648,88" sap2010:WorkflowViewState.IdRef="ExcelWriteCell_23" SheetName="Sheet2" Text="[strNewColG]" />
+                                <ui:ExcelWriteCell Cell="[&quot;E&quot; + Counter.ToString]" DisplayName="Write Cell - Column E" sap:VirtualizedContainerService.HintSize="648,88" sap2010:WorkflowViewState.IdRef="ExcelWriteCell_4" SheetName="Sheet2" Text="[Counter.ToString]" />
+                                <ui:ExcelWriteCell Cell="[&quot;M&quot; + Counter.ToString]" DisplayName="Write Cell - Column M" sap:VirtualizedContainerService.HintSize="648,88" sap2010:WorkflowViewState.IdRef="ExcelWriteCell_8" SheetName="Sheet2" Text="[SeqNo.ToString]" />
+                                <ui:ExcelLookUpRange DisplayName="LookUp Range - Column L value D" sap:VirtualizedContainerService.HintSize="648,88" sap2010:WorkflowViewState.IdRef="ExcelLookUpRange_7" Range="[&quot;K1:K&quot;+RowMBB.ToString]" Result="[ValueK]" SheetName="Sheet2" Value="." />
+                                <ui:ExcelLookUpRange DisplayName="LookUp Range - Column L value C" sap:VirtualizedContainerService.HintSize="648,88" sap2010:WorkflowViewState.IdRef="ExcelLookUpRange_8" Range="[&quot;L1:L&quot;+RowMBB.ToString]" Result="[ValueL]" SheetName="Sheet2" Value="." />
+                                <ui:ExcelWriteCell Cell="[ValueK]" DisplayName="Write Cell - Column L value I" sap:VirtualizedContainerService.HintSize="648,88" sap2010:WorkflowViewState.IdRef="ExcelWriteCell_21" SheetName="Sheet2" Text="-1" />
+                                <ui:ExcelWriteCell Cell="[ValueL]" DisplayName="Write Cell - Column L value I" sap:VirtualizedContainerService.HintSize="648,88" sap2010:WorkflowViewState.IdRef="ExcelWriteCell_22" SheetName="Sheet2" Text="1" />
+                                <Assign sap:VirtualizedContainerService.HintSize="648,60" sap2010:WorkflowViewState.IdRef="Assign_3">
                                   <Assign.To>
                                     <OutArgument x:TypeArguments="x:Int32">[Counter]</OutArgument>
                                   </Assign.To>
@@ -332,7 +460,7 @@
                                     <InArgument x:TypeArguments="x:Int32">[Counter + 1]</InArgument>
                                   </Assign.Value>
                                 </Assign>
-                                <Assign sap:VirtualizedContainerService.HintSize="334,60" sap2010:WorkflowViewState.IdRef="Assign_5">
+                                <Assign sap:VirtualizedContainerService.HintSize="648,60" sap2010:WorkflowViewState.IdRef="Assign_5">
                                   <Assign.To>
                                     <OutArgument x:TypeArguments="x:Int32">[SeqNo]</OutArgument>
                                   </Assign.To>
@@ -350,19 +478,21 @@
                             </scg:Dictionary>
                           </sap:WorkflowViewStateService.ViewState>
                         </ui:ForEachRow>
-                        <ui:WindowScope ApplicationWindow="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" Window="{x:Null}" DisplayName="Attach Window 'excel.exe TNGD'" sap:VirtualizedContainerService.HintSize="334,52" sap2010:WorkflowViewState.IdRef="WindowScope_1" InformativeScreenshot="ca14d0d4d2f93aceb01babe27b3b999c" Selector="&lt;wnd app='excel.exe' cls='XLMAIN' title='TNGD Bank Statement Import*' /&gt;">
+                        <ui:ExcelReadRange AddHeaders="False" DataTable="[dtColG]" DisplayName="Read Range" sap:VirtualizedContainerService.HintSize="739.2,60" sap2010:WorkflowViewState.IdRef="ExcelReadRange_13" Range="[&quot;G1:G&quot; + RowMBB.ToString]" SheetName="Sheet2" />
+                        <ui:ExcelWriteRange AddHeaders="False" DataTable="[dtColG]" DisplayName="Write Range" sap:VirtualizedContainerService.HintSize="739.2,88" sap2010:WorkflowViewState.IdRef="ExcelWriteRange_7" SheetName="Sheet2" StartingCell="H1" />
+                        <ui:WindowScope ApplicationWindow="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" Window="{x:Null}" DisplayName="Attach Window 'excel.exe TNGD'" sap:VirtualizedContainerService.HintSize="739.2,52.8" sap2010:WorkflowViewState.IdRef="WindowScope_1" InformativeScreenshot="ca14d0d4d2f93aceb01babe27b3b999c" Selector="&lt;wnd app='excel.exe' cls='XLMAIN' title='TNGD Bank Statement Import*' /&gt;">
                           <ui:WindowScope.Body>
                             <ActivityAction x:TypeArguments="x:Object">
                               <ActivityAction.Argument>
                                 <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
                               </ActivityAction.Argument>
-                              <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="376,490" sap2010:WorkflowViewState.IdRef="Sequence_18">
+                              <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="375.2,494.4" sap2010:WorkflowViewState.IdRef="Sequence_18">
                                 <sap:WorkflowViewStateService.ViewState>
                                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                   </scg:Dictionary>
                                 </sap:WorkflowViewStateService.ViewState>
-                                <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click - File tab" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="Click_1" KeyModifiers="None" MouseButton="BTN_LEFT" SimulateClick="True">
+                                <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click - File tab" sap:VirtualizedContainerService.HintSize="333.6,107.2" sap2010:WorkflowViewState.IdRef="Click_1" KeyModifiers="None" MouseButton="BTN_LEFT" SimulateClick="True">
                                   <ui:Click.CursorPosition>
                                     <ui:CursorPosition Position="Center">
                                       <ui:CursorPosition.OffsetX>
@@ -381,7 +511,7 @@
                                     </ui:Target>
                                   </ui:Click.Target>
                                 </ui:Click>
-                                <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click - Save As" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="Click_2" KeyModifiers="None" MouseButton="BTN_LEFT">
+                                <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click - Save As" sap:VirtualizedContainerService.HintSize="333.6,107.2" sap2010:WorkflowViewState.IdRef="Click_2" KeyModifiers="None" MouseButton="BTN_LEFT">
                                   <ui:Click.CursorPosition>
                                     <ui:CursorPosition Position="Center">
                                       <ui:CursorPosition.OffsetX>
@@ -400,7 +530,7 @@
                                     </ui:Target>
                                   </ui:Click.Target>
                                 </ui:Click>
-                                <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click - Browse" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="Click_3" KeyModifiers="None" MouseButton="BTN_LEFT">
+                                <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click - Browse" sap:VirtualizedContainerService.HintSize="333.6,107.2" sap2010:WorkflowViewState.IdRef="Click_3" KeyModifiers="None" MouseButton="BTN_LEFT">
                                   <ui:Click.CursorPosition>
                                     <ui:CursorPosition Position="Center">
                                       <ui:CursorPosition.OffsetX>
@@ -425,19 +555,19 @@
                           <sap:WorkflowViewStateService.ViewState>
                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
                               <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-                              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                              <x:Boolean x:Key="IsPinned">True</x:Boolean>
                             </scg:Dictionary>
                           </sap:WorkflowViewStateService.ViewState>
                         </ui:WindowScope>
-                        <ui:OnUiElementAppear ContinueOnError="{x:Null}" FoundElement="{x:Null}" WaitActive="{x:Null}" WaitVisible="{x:Null}" DisplayName="On Element Appear 'excel.exe  Save As'" sap:VirtualizedContainerService.HintSize="334,52" sap2010:WorkflowViewState.IdRef="OnUiElementAppear_1" RepeatForever="False">
+                        <ui:OnUiElementAppear ContinueOnError="{x:Null}" FoundElement="{x:Null}" WaitActive="{x:Null}" WaitVisible="{x:Null}" DisplayName="On Element Appear 'excel.exe  Save As'" sap:VirtualizedContainerService.HintSize="739.2,846.4" sap2010:WorkflowViewState.IdRef="OnUiElementAppear_1" RepeatForever="False">
                           <ui:OnUiElementAppear.Body>
-                            <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="376,664" sap2010:WorkflowViewState.IdRef="Sequence_19">
+                            <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="375.2,669.6" sap2010:WorkflowViewState.IdRef="Sequence_19">
                               <sap:WorkflowViewStateService.ViewState>
                                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                 </scg:Dictionary>
                               </sap:WorkflowViewStateService.ViewState>
-                              <ui:SetValue AlterIfDisabled="{x:Null}" ContinueOnError="{x:Null}" DelayAfter="{x:Null}" DelayBefore="{x:Null}" DisplayName="Set Text - File Name" sap:VirtualizedContainerService.HintSize="334,134" sap2010:WorkflowViewState.IdRef="SetValue_1" Text="[in_Config(&quot;BankStatementImport&quot;).ToString + &quot;TNGD Bank Statement Import_&quot; + in_BankAcc + &quot;_&quot; + Now.ToString(&quot;yyyyMMdd&quot;)]">
+                              <ui:SetValue AlterIfDisabled="{x:Null}" ContinueOnError="{x:Null}" DelayAfter="{x:Null}" DelayBefore="{x:Null}" DisplayName="Set Text - File Name" sap:VirtualizedContainerService.HintSize="333.6,135.2" sap2010:WorkflowViewState.IdRef="SetValue_1" Text="[in_Config(&quot;BankStatementImport&quot;).ToString + &quot;TNGD Bank Statement Import_&quot; + in_BankAcc + &quot;_&quot; + Now.ToString(&quot;yyyyMMdd&quot;)]">
                                 <ui:SetValue.Target>
                                   <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="935ca56b-94cb-47c9-99a1-d281d06370fe" InformativeScreenshot="28ef4e879e16dad2fa45e34664fea8ed" Selector="&lt;wnd app='excel.exe' cls='#32770' title='Save As' /&gt;&lt;wnd aaname='Explorer Pane' cls='DirectUIHWND' /&gt;&lt;wnd aaname='File name:' cls='ComboBox' /&gt;&lt;wnd aaname='File name:' /&gt;" WaitForReady="INTERACTIVE">
                                     <ui:Target.TimeoutMS>
@@ -446,7 +576,7 @@
                                   </ui:Target>
                                 </ui:SetValue.Target>
                               </ui:SetValue>
-                              <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click - Save as type button" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="Click_4" KeyModifiers="None" MouseButton="BTN_LEFT">
+                              <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click - Save as type button" sap:VirtualizedContainerService.HintSize="333.6,107.2" sap2010:WorkflowViewState.IdRef="Click_4" KeyModifiers="None" MouseButton="BTN_LEFT">
                                 <ui:Click.CursorPosition>
                                   <ui:CursorPosition Position="Center">
                                     <ui:CursorPosition.OffsetX>
@@ -465,7 +595,7 @@
                                   </ui:Target>
                                 </ui:Click.Target>
                               </ui:Click>
-                              <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click - Options type" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="Click_5" KeyModifiers="None" MouseButton="BTN_LEFT">
+                              <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click - Options type" sap:VirtualizedContainerService.HintSize="333.6,107.2" sap2010:WorkflowViewState.IdRef="Click_5" KeyModifiers="None" MouseButton="BTN_LEFT">
                                 <ui:Click.CursorPosition>
                                   <ui:CursorPosition Position="Center">
                                     <ui:CursorPosition.OffsetX>
@@ -477,14 +607,14 @@
                                   </ui:CursorPosition>
                                 </ui:Click.CursorPosition>
                                 <ui:Click.Target>
-                                  <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="7785fbab-c1f6-4f98-881e-166dbf015d5a" InformativeScreenshot="043c2dddb688413c64d200815cf86a08" Selector="&lt;wnd app='excel.exe' cls='ComboLBox' idx='*' /&gt;&lt;ctrl name='Save as type:' role='list' /&gt;&lt;ctrl name='Excel 97-2003 Workbook ' role='list item' /&gt;" WaitForReady="INTERACTIVE">
+                                  <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="7785fbab-c1f6-4f98-881e-166dbf015d5a" InformativeScreenshot="043c2dddb688413c64d200815cf86a08" Selector="&lt;wnd app='excel.exe' cls='ComboLBox' idx='*' /&gt;&lt;ctrl name='Save as type:' role='list' /&gt;&lt;ctrl name='CSV UTF-8 (Comma delimited) ' role='list item' /&gt;" WaitForReady="INTERACTIVE">
                                     <ui:Target.TimeoutMS>
                                       <InArgument x:TypeArguments="x:Int32" />
                                     </ui:Target.TimeoutMS>
                                   </ui:Target>
                                 </ui:Click.Target>
                               </ui:Click>
-                              <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click - Save button" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="Click_6" KeyModifiers="None" MouseButton="BTN_LEFT">
+                              <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click - Save button" sap:VirtualizedContainerService.HintSize="333.6,107.2" sap2010:WorkflowViewState.IdRef="Click_6" KeyModifiers="None" MouseButton="BTN_LEFT">
                                 <ui:Click.CursorPosition>
                                   <ui:CursorPosition Position="Center">
                                     <ui:CursorPosition.OffsetX>
@@ -517,20 +647,20 @@
                           </ui:OnUiElementAppear.Target>
                           <sap:WorkflowViewStateService.ViewState>
                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                               <x:Boolean x:Key="IsPinned">False</x:Boolean>
                             </scg:Dictionary>
                           </sap:WorkflowViewStateService.ViewState>
                         </ui:OnUiElementAppear>
-                        <ui:OnUiElementAppear ContinueOnError="{x:Null}" FoundElement="{x:Null}" WaitActive="{x:Null}" WaitVisible="{x:Null}" DisplayName="On Element Appear 'excel.exe Confirm'" sap:VirtualizedContainerService.HintSize="334,52" sap2010:WorkflowViewState.IdRef="OnUiElementAppear_2" RepeatForever="False">
+                        <ui:OnUiElementAppear FoundElement="{x:Null}" WaitActive="{x:Null}" WaitVisible="{x:Null}" ContinueOnError="True" DisplayName="On Element Appear 'excel.exe Confirm'" sap:VirtualizedContainerService.HintSize="739.2,376.8" sap2010:WorkflowViewState.IdRef="OnUiElementAppear_2" RepeatForever="False">
                           <ui:OnUiElementAppear.Body>
-                            <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="376,198" sap2010:WorkflowViewState.IdRef="Sequence_20">
+                            <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="375.2,200" sap2010:WorkflowViewState.IdRef="Sequence_20">
                               <sap:WorkflowViewStateService.ViewState>
                                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                 </scg:Dictionary>
                               </sap:WorkflowViewStateService.ViewState>
-                              <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click - Save as button" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="Click_7" KeyModifiers="None" MouseButton="BTN_LEFT">
+                              <ui:Click AlterIfDisabled="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" SendWindowMessages="{x:Null}" SimulateClick="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click - Save as button" sap:VirtualizedContainerService.HintSize="333.6,107.2" sap2010:WorkflowViewState.IdRef="Click_7" KeyModifiers="None" MouseButton="BTN_LEFT">
                                 <ui:Click.CursorPosition>
                                   <ui:CursorPosition Position="Center">
                                     <ui:CursorPosition.OffsetX>
@@ -563,7 +693,7 @@
                           </ui:OnUiElementAppear.Target>
                           <sap:WorkflowViewStateService.ViewState>
                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                               <x:Boolean x:Key="IsPinned">False</x:Boolean>
                             </scg:Dictionary>
                           </sap:WorkflowViewStateService.ViewState>
@@ -584,10 +714,10 @@
         </Sequence>
       </TryCatch.Try>
       <TryCatch.Catches>
-        <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="530,408" sap2010:WorkflowViewState.IdRef="Catch`1_1">
+        <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="1144.8,409.6" sap2010:WorkflowViewState.IdRef="Catch`1_1">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
-              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
               <x:Boolean x:Key="IsPinned">False</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
@@ -595,15 +725,15 @@
             <ActivityAction.Argument>
               <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
             </ActivityAction.Argument>
-            <Sequence sap:VirtualizedContainerService.HintSize="376,338" sap2010:WorkflowViewState.IdRef="Sequence_25">
+            <Sequence sap:VirtualizedContainerService.HintSize="375.2,339.2" sap2010:WorkflowViewState.IdRef="Sequence_25">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                   <x:Boolean x:Key="IsPinned">False</x:Boolean>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,93" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Error" Message="[&quot;No Data&quot;]" />
-              <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke TakeScreenshot workflow" sap:VirtualizedContainerService.HintSize="334,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Framework\TakeScreenshot.xaml">
+              <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="333.6,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Error" Message="[&quot;No Data&quot;]" />
+              <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke TakeScreenshot workflow" sap:VirtualizedContainerService.HintSize="333.6,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Framework\TakeScreenshot.xaml">
                 <ui:InvokeWorkflowFile.Arguments>
                   <InArgument x:TypeArguments="x:String" x:Key="in_Folder">[in_Config("ExScreenshotsFolderPath").ToString]</InArgument>
                   <InOutArgument x:TypeArguments="x:String" x:Key="io_FilePath" />

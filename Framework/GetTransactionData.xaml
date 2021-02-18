@@ -12,7 +12,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1001,1489</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>631.2,1130.4</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>GetTransactionData_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -76,22 +76,22 @@
       <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="Get a transaction item from a specified source (e.g., Orchestrator queues, spreadsheets, databases, mailboxes or web APIs). &#xA;&#xA;If there are no transaction items remaining, out_TransactionItem is set to Nothing, which leads to the End Process state. &#xA;&#xA;For cases in which there is only a single transaction (i.e., a linear process), use an If activity to check whether the argument in_TransactionNumber has the value 1 (meaning it is the first and only transaction) and assign the transaction item to out_TransactionItem. For any other value of in_TransactionNumber, out_TransactionItem should be set to Nothing.&#xA;&#xA;If there are multiple transactions, use the argument in_TransactionNumber as an index to retrieve the correct transaction to be processed. If there are no more transactions left, it is necessary to set out_TransactionItem to Nothing, thus ending the process." DisplayName="Get Transaction Data" sap:VirtualizedContainerService.HintSize="478,1384" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="Get a transaction item from a specified source (e.g., Orchestrator queues, spreadsheets, databases, mailboxes or web APIs). &#xA;&#xA;If there are no transaction items remaining, out_TransactionItem is set to Nothing, which leads to the End Process state. &#xA;&#xA;For cases in which there is only a single transaction (i.e., a linear process), use an If activity to check whether the argument in_TransactionNumber has the value 1 (meaning it is the first and only transaction) and assign the transaction item to out_TransactionItem. For any other value of in_TransactionNumber, out_TransactionItem should be set to Nothing.&#xA;&#xA;If there are multiple transactions, use the argument in_TransactionNumber as an index to retrieve the correct transaction to be processed. If there are no more transactions left, it is necessary to set out_TransactionItem to Nothing, thus ending the process." DisplayName="Get Transaction Data" sap:VirtualizedContainerService.HintSize="375.2,1025.6" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="436,52" sap2010:WorkflowViewState.IdRef="CommentOut_1">
+    <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="333.6,52.8" sap2010:WorkflowViewState.IdRef="CommentOut_1">
       <ui:CommentOut.Body>
-        <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="242,306" sap2010:WorkflowViewState.IdRef="Sequence_4">
+        <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="241.6,319.2" sap2010:WorkflowViewState.IdRef="Sequence_4">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <ui:GetQueueItem ContinueOnError="{x:Null}" TimeoutMS="{x:Null}" sap2010:Annotation.AnnotationText="Get a transaction item from the specified Orchestrator queue.&#xA;If queues are not used in this process, replace this activity with the appropriated logic to retrieve transaction items.&#xA;For example, if transactions are rows from a DataTable, the row corresponding to the current transaction is retrieved at this point." DisplayName="Get transaction item" sap:VirtualizedContainerService.HintSize="200,214" sap2010:WorkflowViewState.IdRef="GetQueueItem_1" QueueType="[in_Config(&quot;OrchestratorQueueName&quot;).ToString]" TransactionItem="[out_TransactionItem]">
+          <ui:GetQueueItem ContinueOnError="{x:Null}" TimeoutMS="{x:Null}" sap2010:Annotation.AnnotationText="Get a transaction item from the specified Orchestrator queue.&#xA;If queues are not used in this process, replace this activity with the appropriated logic to retrieve transaction items.&#xA;For example, if transactions are rows from a DataTable, the row corresponding to the current transaction is retrieved at this point." DisplayName="Get transaction item" sap:VirtualizedContainerService.HintSize="200,226.4" sap2010:WorkflowViewState.IdRef="GetQueueItem_1" QueueType="[in_Config(&quot;OrchestratorQueueName&quot;).ToString]" TransactionItem="[out_TransactionItem]">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
@@ -107,22 +107,22 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:CommentOut>
-    <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="436,52" sap2010:WorkflowViewState.IdRef="CommentOut_2">
+    <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="333.6,52.8" sap2010:WorkflowViewState.IdRef="CommentOut_2">
       <ui:CommentOut.Body>
-        <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="526,720" sap2010:WorkflowViewState.IdRef="Sequence_5">
+        <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="524.8,728" sap2010:WorkflowViewState.IdRef="Sequence_5">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <If sap2010:Annotation.AnnotationText="This optional step can be used to include more information about a transaction item and it is used mainly for logging and visualization purposes.&#xA;For example, if transaction items are invoices, then out_TransactionID can be the invoice number, out_TransactionField1 can be the invoice date and out_TransactionField2 can be the invoice amount." Condition="[out_TransactionItem isNot Nothing]" DisplayName="If a new transaction item is retrieved, get additional information about it" sap:VirtualizedContainerService.HintSize="484,628" sap2010:WorkflowViewState.IdRef="If_1">
+          <If sap2010:Annotation.AnnotationText="This optional step can be used to include more information about a transaction item and it is used mainly for logging and visualization purposes.&#xA;For example, if transaction items are invoices, then out_TransactionID can be the invoice number, out_TransactionField1 can be the invoice date and out_TransactionField2 can be the invoice amount." Condition="[out_TransactionItem isNot Nothing]" DisplayName="If a new transaction item is retrieved, get additional information about it" sap:VirtualizedContainerService.HintSize="483.2,635.2" sap2010:WorkflowViewState.IdRef="If_1">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
             <If.Then>
-              <Sequence sap2010:Annotation.AnnotationText="Write data to the added log fields that identify the transaction." DisplayName="Add transaction information to log fields" sap:VirtualizedContainerService.HintSize="304,394" sap2010:WorkflowViewState.IdRef="Sequence_3">
+              <Sequence sap2010:Annotation.AnnotationText="Write data to the added log fields that identify the transaction." DisplayName="Add transaction information to log fields" sap:VirtualizedContainerService.HintSize="304,393.6" sap2010:WorkflowViewState.IdRef="Sequence_3">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -165,26 +165,43 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:CommentOut>
-    <ui:BuildDataTable DataTable="[io_TransactionData]" DisplayName="Build Data Table" sap:VirtualizedContainerService.HintSize="436,59" sap2010:WorkflowViewState.IdRef="BuildDataTable_1" TableInfo="&lt;NewDataSet&gt;&#xA;  &lt;xs:schema id=&quot;NewDataSet&quot; xmlns=&quot;&quot; xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:msdata=&quot;urn:schemas-microsoft-com:xml-msdata&quot;&gt;&#xA;    &lt;xs:element name=&quot;NewDataSet&quot; msdata:IsDataSet=&quot;true&quot; msdata:MainDataTable=&quot;TableName&quot; msdata:UseCurrentLocale=&quot;true&quot;&gt;&#xA;      &lt;xs:complexType&gt;&#xA;        &lt;xs:choice minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;&gt;&#xA;          &lt;xs:element name=&quot;TableName&quot;&gt;&#xA;            &lt;xs:complexType&gt;&#xA;              &lt;xs:sequence&gt;&#xA;                &lt;xs:element name=&quot;Column1&quot; minOccurs=&quot;0&quot;&gt;&#xA;                  &lt;xs:simpleType&gt;&#xA;                    &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#xA;                      &lt;xs:maxLength value=&quot;100&quot; /&gt;&#xA;                    &lt;/xs:restriction&gt;&#xA;                  &lt;/xs:simpleType&gt;&#xA;                &lt;/xs:element&gt;&#xA;                &lt;xs:element name=&quot;Column2&quot; type=&quot;xs:int&quot; minOccurs=&quot;0&quot; /&gt;&#xA;              &lt;/xs:sequence&gt;&#xA;            &lt;/xs:complexType&gt;&#xA;          &lt;/xs:element&gt;&#xA;        &lt;/xs:choice&gt;&#xA;      &lt;/xs:complexType&gt;&#xA;    &lt;/xs:element&gt;&#xA;  &lt;/xs:schema&gt;&#xA;  &lt;TableName&gt;&#xA;    &lt;Column1&gt;text&lt;/Column1&gt;&#xA;    &lt;Column2&gt;1&lt;/Column2&gt;&#xA;  &lt;/TableName&gt;&#xA;&lt;/NewDataSet&gt;" />
-    <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="436,589" sap2010:WorkflowViewState.IdRef="CommentOut_5">
+    <ui:BuildDataTable DataTable="[io_TransactionData]" DisplayName="Build Data Table" sap:VirtualizedContainerService.HintSize="333.6,60" sap2010:WorkflowViewState.IdRef="BuildDataTable_1" TableInfo="&lt;NewDataSet&gt;&#xA;  &lt;xs:schema id=&quot;NewDataSet&quot; xmlns=&quot;&quot; xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:msdata=&quot;urn:schemas-microsoft-com:xml-msdata&quot;&gt;&#xA;    &lt;xs:element name=&quot;NewDataSet&quot; msdata:IsDataSet=&quot;true&quot; msdata:MainDataTable=&quot;TableName&quot; msdata:UseCurrentLocale=&quot;true&quot;&gt;&#xA;      &lt;xs:complexType&gt;&#xA;        &lt;xs:choice minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;&gt;&#xA;          &lt;xs:element name=&quot;TableName&quot;&gt;&#xA;            &lt;xs:complexType&gt;&#xA;              &lt;xs:sequence&gt;&#xA;                &lt;xs:element name=&quot;Column1&quot; minOccurs=&quot;0&quot;&gt;&#xA;                  &lt;xs:simpleType&gt;&#xA;                    &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#xA;                      &lt;xs:maxLength value=&quot;100&quot; /&gt;&#xA;                    &lt;/xs:restriction&gt;&#xA;                  &lt;/xs:simpleType&gt;&#xA;                &lt;/xs:element&gt;&#xA;                &lt;xs:element name=&quot;Column2&quot; type=&quot;xs:int&quot; minOccurs=&quot;0&quot; /&gt;&#xA;              &lt;/xs:sequence&gt;&#xA;            &lt;/xs:complexType&gt;&#xA;          &lt;/xs:element&gt;&#xA;        &lt;/xs:choice&gt;&#xA;      &lt;/xs:complexType&gt;&#xA;    &lt;/xs:element&gt;&#xA;  &lt;/xs:schema&gt;&#xA;  &lt;TableName&gt;&#xA;    &lt;Column1&gt;text&lt;/Column1&gt;&#xA;    &lt;Column2&gt;1&lt;/Column2&gt;&#xA;  &lt;/TableName&gt;&#xA;&lt;/NewDataSet&gt;" />
+    <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="333.6,52.8" sap2010:WorkflowViewState.IdRef="CommentOut_5">
       <ui:CommentOut.Body>
-        <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="376,511" sap2010:WorkflowViewState.IdRef="Sequence_8">
+        <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="375.2,360" sap2010:WorkflowViewState.IdRef="Sequence_8">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke CIMB_Download workflow" sap:VirtualizedContainerService.HintSize="334,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="CIMB_Download.xaml">
+          <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke CIMB_Download workflow" sap:VirtualizedContainerService.HintSize="333.6,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="CIMB_Download.xaml">
             <ui:InvokeWorkflowFile.Arguments>
               <scg:Dictionary x:TypeArguments="x:String, Argument" />
             </ui:InvokeWorkflowFile.Arguments>
           </ui:InvokeWorkflowFile>
-          <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke MBB_Download workflow" sap:VirtualizedContainerService.HintSize="334,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_4" UnSafe="False" WorkflowFileName="MBB_Download.xaml">
+          <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke MBB_Download workflow" sap:VirtualizedContainerService.HintSize="333.6,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_4" UnSafe="False" WorkflowFileName="MBB_Download.xaml">
             <ui:InvokeWorkflowFile.Arguments>
               <scg:Dictionary x:TypeArguments="x:String, Argument" />
             </ui:InvokeWorkflowFile.Arguments>
           </ui:InvokeWorkflowFile>
-          <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke SAGE_SeqNumber workflow" sap:VirtualizedContainerService.HintSize="334,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="SAGE\SAGE_SeqNumber.xaml">
+        </Sequence>
+      </ui:CommentOut.Body>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:CommentOut>
+    <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="333.6,52.8" sap2010:WorkflowViewState.IdRef="CommentOut_6">
+      <ui:CommentOut.Body>
+        <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="375.2,206.4" sap2010:WorkflowViewState.IdRef="Sequence_9">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke SAGE_SeqNumber workflow" sap:VirtualizedContainerService.HintSize="333.6,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="SAGE\SAGE_SeqNumber.xaml">
             <ui:InvokeWorkflowFile.Arguments>
               <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[in_Config]</InArgument>
               <InOutArgument x:TypeArguments="x:String" x:Key="io_bInternalNo">[io_bInternalNo]</InOutArgument>
@@ -192,8 +209,14 @@
           </ui:InvokeWorkflowFile>
         </Sequence>
       </ui:CommentOut.Body>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
     </ui:CommentOut>
-    <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Extract_ListBankAcc workflow" sap:VirtualizedContainerService.HintSize="436,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="EXCEL\Extract_ListBankAcc.xaml">
+    <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Extract_ListBankAcc workflow" sap:VirtualizedContainerService.HintSize="333.6,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="EXCEL\Extract_ListBankAcc.xaml">
       <ui:InvokeWorkflowFile.Arguments>
         <InOutArgument x:TypeArguments="sd:DataTable" x:Key="io_TransactionData">[io_TransactionData]</InOutArgument>
       </ui:InvokeWorkflowFile.Arguments>
