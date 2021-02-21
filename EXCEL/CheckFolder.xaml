@@ -8,7 +8,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1000.8,2168</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1166.4,3896</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>CheckFolder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="44">
@@ -65,9 +65,10 @@
       <AssemblyReference>UiPath.OCR.Activities.Design</AssemblyReference>
       <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
       <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
+      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="CheckFolder" sap:VirtualizedContainerService.HintSize="852,2063.2" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="CheckFolder" sap:VirtualizedContainerService.HintSize="1176.8,3751.2" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="CurrYear" />
       <Variable x:TypeArguments="x:Boolean" Name="bYear" />
@@ -80,8 +81,8 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="810.4,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Start Check folder current date&quot;]" />
-    <If Condition="[io_UserInput = &quot;Daily&quot;]" sap:VirtualizedContainerService.HintSize="810.4,1704.8" sap2010:WorkflowViewState.IdRef="If_4">
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="1135.2,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Start Check folder current date&quot;]" />
+    <If Condition="[io_UserInput = &quot;Daily&quot;]" sap:VirtualizedContainerService.HintSize="1135.2,3392.8" sap2010:WorkflowViewState.IdRef="If_4">
       <If.Then>
         <Sequence sap:VirtualizedContainerService.HintSize="524.8,1555.2" sap2010:WorkflowViewState.IdRef="Sequence_2">
           <sap:WorkflowViewStateService.ViewState>
@@ -95,7 +96,7 @@
               <OutArgument x:TypeArguments="x:String">[CurrYear]</OutArgument>
             </Assign.To>
             <Assign.Value>
-              <InArgument x:TypeArguments="x:String">[in_Config + "CIMB\" + Now.ToString("yyyy")]</InArgument>
+              <InArgument x:TypeArguments="x:String">[in_Config + "CIMB\" + Now.AddMonths(-1).ToString("yyyy")]</InArgument>
             </Assign.Value>
           </Assign>
           <ui:PathExists DisplayName="Path Exists" Exists="[bYear]" sap:VirtualizedContainerService.HintSize="483.2,90.4" sap2010:WorkflowViewState.IdRef="PathExists_1" Path="[CurrYear]" PathType="Folder" />
@@ -109,7 +110,7 @@
               <OutArgument x:TypeArguments="x:String">[CurrMonth]</OutArgument>
             </Assign.To>
             <Assign.Value>
-              <InArgument x:TypeArguments="x:String">[CurrYear +"\" + Now.ToString("MMMM")]</InArgument>
+              <InArgument x:TypeArguments="x:String">[CurrYear +"\" + Now. AddMonths(-1).ToString("MMMM")]</InArgument>
             </Assign.Value>
           </Assign>
           <ui:PathExists DisplayName="Path Exists" Exists="[bMonth]" sap:VirtualizedContainerService.HintSize="483.2,90.4" sap2010:WorkflowViewState.IdRef="PathExists_2" Path="[CurrMonth]" PathType="Folder" />
@@ -123,7 +124,7 @@
               <OutArgument x:TypeArguments="x:String">[io_CurrDateCIMB]</OutArgument>
             </Assign.To>
             <Assign.Value>
-              <InArgument x:TypeArguments="x:String">[CurrMonth +"\" + Now.ToString("ddMMyyyy")]</InArgument>
+              <InArgument x:TypeArguments="x:String">[CurrMonth +"\" + Now.AddMonths(-1).ToString("ddMMyyyy")]</InArgument>
             </Assign.Value>
           </Assign>
           <ui:PathExists DisplayName="Path Exists" Exists="[bDate]" sap:VirtualizedContainerService.HintSize="483.2,90.4" sap2010:WorkflowViewState.IdRef="PathExists_3" Path="[io_CurrDateCIMB]" PathType="Folder" />
@@ -135,16 +136,16 @@
         </Sequence>
       </If.Then>
       <If.Else>
-        <Sequence sap:VirtualizedContainerService.HintSize="241.6,270.4" sap2010:WorkflowViewState.IdRef="Sequence_5">
+        <Sequence sap:VirtualizedContainerService.HintSize="566.4,3243.2" sap2010:WorkflowViewState.IdRef="Sequence_5">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <Sequence DisplayName="Sequence - CIMB" sap:VirtualizedContainerService.HintSize="200,68.8" sap2010:WorkflowViewState.IdRef="Sequence_3">
+          <Sequence DisplayName="Sequence - CIMB" sap:VirtualizedContainerService.HintSize="524.8,1555.2" sap2010:WorkflowViewState.IdRef="Sequence_3">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                 <x:Boolean x:Key="IsPinned">False</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
@@ -153,7 +154,7 @@
                 <OutArgument x:TypeArguments="x:String">[CurrYear]</OutArgument>
               </Assign.To>
               <Assign.Value>
-                <InArgument x:TypeArguments="x:String">[in_Config + "CIMB\" + Now.ToString("yyyy")]</InArgument>
+                <InArgument x:TypeArguments="x:String">[in_Config + "CIMB\" + Now.AddMonths(-1).ToString("yyyy")]</InArgument>
               </Assign.Value>
             </Assign>
             <ui:PathExists DisplayName="Path Exists" Exists="[bYear]" sap:VirtualizedContainerService.HintSize="483.2,90.4" sap2010:WorkflowViewState.IdRef="PathExists_4" Path="[CurrYear]" PathType="Folder" />
@@ -167,7 +168,7 @@
                 <OutArgument x:TypeArguments="x:String">[CurrMonth]</OutArgument>
               </Assign.To>
               <Assign.Value>
-                <InArgument x:TypeArguments="x:String">[CurrYear +"\" + Now.ToString("MMMM")]</InArgument>
+                <InArgument x:TypeArguments="x:String">[CurrYear +"\" + Now.AddMonths(-1).ToString("MMMM")]</InArgument>
               </Assign.Value>
             </Assign>
             <ui:PathExists DisplayName="Path Exists" Exists="[bMonth]" sap:VirtualizedContainerService.HintSize="483.2,90.4" sap2010:WorkflowViewState.IdRef="PathExists_5" Path="[CurrMonth]" PathType="Folder" />
@@ -181,7 +182,7 @@
                 <OutArgument x:TypeArguments="x:String">[io_CurrDateCIMB]</OutArgument>
               </Assign.To>
               <Assign.Value>
-                <InArgument x:TypeArguments="x:String">[CurrMonth +"\" + Now.ToString("ddMMyyyy")]</InArgument>
+                <InArgument x:TypeArguments="x:String">[CurrMonth +"\" + Now.AddMonths(-1).ToString("ddMMyyyy")]</InArgument>
               </Assign.Value>
             </Assign>
             <ui:PathExists DisplayName="Path Exists" Exists="[bDate]" sap:VirtualizedContainerService.HintSize="483.2,90.4" sap2010:WorkflowViewState.IdRef="PathExists_6" Path="[io_CurrDateCIMB]" PathType="Folder" />
@@ -191,10 +192,10 @@
               </If.Then>
             </If>
           </Sequence>
-          <Sequence DisplayName="Sequence - MBB" sap:VirtualizedContainerService.HintSize="200,68.8" sap2010:WorkflowViewState.IdRef="Sequence_4">
+          <Sequence DisplayName="Sequence - MBB" sap:VirtualizedContainerService.HintSize="524.8,1555.2" sap2010:WorkflowViewState.IdRef="Sequence_4">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                 <x:Boolean x:Key="IsPinned">False</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
@@ -203,7 +204,7 @@
                 <OutArgument x:TypeArguments="x:String">[CurrYear]</OutArgument>
               </Assign.To>
               <Assign.Value>
-                <InArgument x:TypeArguments="x:String">[in_Config + "MBB\" + Now.ToString("yyyy")]</InArgument>
+                <InArgument x:TypeArguments="x:String">[in_Config + "MBB\" + Now.AddMonths(-1).ToString("yyyy")]</InArgument>
               </Assign.Value>
             </Assign>
             <ui:PathExists DisplayName="Path Exists" Exists="[bYear]" sap:VirtualizedContainerService.HintSize="483.2,90.4" sap2010:WorkflowViewState.IdRef="PathExists_7" Path="[CurrYear]" PathType="Folder" />
@@ -217,7 +218,7 @@
                 <OutArgument x:TypeArguments="x:String">[CurrMonth]</OutArgument>
               </Assign.To>
               <Assign.Value>
-                <InArgument x:TypeArguments="x:String">[CurrYear +"\" + Now.ToString("MMMM")]</InArgument>
+                <InArgument x:TypeArguments="x:String">[CurrYear +"\" + Now.AddMonths(-1).ToString("MMMM")]</InArgument>
               </Assign.Value>
             </Assign>
             <ui:PathExists DisplayName="Path Exists" Exists="[bMonth]" sap:VirtualizedContainerService.HintSize="483.2,90.4" sap2010:WorkflowViewState.IdRef="PathExists_8" Path="[CurrMonth]" PathType="Folder" />
@@ -231,7 +232,7 @@
                 <OutArgument x:TypeArguments="x:String">[io_CurrDateMBB]</OutArgument>
               </Assign.To>
               <Assign.Value>
-                <InArgument x:TypeArguments="x:String">[CurrMonth +"\" + Now.ToString("ddMMyyyy")]</InArgument>
+                <InArgument x:TypeArguments="x:String">[CurrMonth +"\" + Now.AddMonths(-1).ToString("ddMMyyyy")]</InArgument>
               </Assign.Value>
             </Assign>
             <ui:PathExists DisplayName="Path Exists" Exists="[bDate]" sap:VirtualizedContainerService.HintSize="483.2,90.4" sap2010:WorkflowViewState.IdRef="PathExists_9" Path="[io_CurrDateMBB]" PathType="Folder" />
@@ -244,6 +245,6 @@
         </Sequence>
       </If.Else>
     </If>
-    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="810.4,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;End Check folder current date&quot;]" />
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="1135.2,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;End Check folder current date&quot;]" />
   </Sequence>
 </Activity>
